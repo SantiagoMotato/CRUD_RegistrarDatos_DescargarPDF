@@ -102,7 +102,8 @@ class RegistroController extends Controller
             $dato = User::find($id);
             $formato = Pdf::loadView('/formato', compact('dato'));
 
-            return $formato->download('dato.formatoPDF');
+            return $formato->download('dato.pdf');
+            /* return $formato->download('dato.formatoPDF'); */
             
         }catch(\Exception $e){
             return response()->json(['msg' => 'Error al ejecutar el metodo formatoPDF', 'error'=>$e->getMessage()]);
